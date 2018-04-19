@@ -1,7 +1,6 @@
 pragma solidity ^0.4.0;
 import "./landlord.sol";
 import "./tenant.sol";
-// import "./room.sol";
 import "./bid.sol";
 import "./tender.sol";
 contract BidSystemFactory {
@@ -13,10 +12,6 @@ contract BidSystemFactory {
 
     mapping(uint => address) public roomMapping;
     address[] public roomList;
-
-    //pending...
-    // mapping(uint => address) public orderMapping;
-    // address[] public orderList;
 
     mapping(uint => address) public bidMapping;
     address[] public bidList;
