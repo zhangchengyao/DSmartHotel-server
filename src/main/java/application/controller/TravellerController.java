@@ -1,10 +1,11 @@
 package application.controller;
 
-import org.springframework.stereotype.Controller;
+
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by guhan on 18/4/13.
  */
-@Controller
+@RestController
 public class TravellerController {
 }
