@@ -1,25 +1,22 @@
 pragma solidity ^0.4.0;
 import "./user.sol";
 import "./room.sol";
-import "./order.sol";
 import "./bid.sol";
 import "./tender.sol";
 contract Landlord is User{
-    bytes32 public landlordtype;
-    bytes32 public city;
-    // string public area;
-    bytes32 public detailAddress;
-    bytes32 public comment;
+    bytes32 landlordType;
+    bytes32 city;
+    // string area;
+    bytes32 detailAddress;
+    bytes32 comment;
     // uint public longitude;
     // uint public latitude;
-    bytes32 public contact;
-    bytes32 public introduction;
-    bytes32 public characteristic;
+    bytes32 contact;
+    bytes32 introduction;
+    bytes32 characteristic;
 
     mapping(uint => address) public roomMapping;
     address[] public roomList;
-    mapping(uint => address) public orderMapping;
-    address[] public orderList;
     mapping(uint => address) public tenderMapping;
     address[] public tenderList;
     mapping(uint => address) public bidMapping;
@@ -30,7 +27,7 @@ contract Landlord is User{
         id = _id;
         name = _name;
         password = _password;
-        landlordtype = _otherInfo[0];
+        landlordType = _otherInfo[0];
         city = _otherInfo[1];
         // // area = _area;
         detailAddress = _otherInfo[2];
@@ -56,5 +53,64 @@ contract Landlord is User{
             _orderId, _score);
         bidList.push(newBid);
         bidMapping[_bidId] = bidList[bidList.length - 1];
+    }
+
+    function setLandlordType(bytes32 lordType) public {
+        landlordType = lordType;
+    }
+    function getLandlordType() public constant returns(bytes32 _landlordType) {
+        return landlordType;
+    }
+
+    function setCity(bytes32 _city) public {
+        city = _city;
+    }
+    function getCity() public constant returns (bytes32 _city) {
+        return city;
+    }
+
+    function setDetailAddress(bytes32 da) public {
+        detailAddress = da;
+    }
+    function getDetailAddress() public constant returns(bytes32 _detailAddress) {
+        return detailAddress;
+    }
+
+    function setComment(bytes32 _comment) public {
+        comment = _comment;
+    }
+    function getComment() public constant returns (bytes32 _comment) {
+        return comment;
+    }
+
+    function setContact(bytes32 _contact) public {
+        contact = _contact;
+    }
+    function getContact() public constant returns(bytes32 _contact) {
+        return contact;
+    }
+
+    function setIntroduction(bytes32 intro) public {
+        introduction = intro;
+    }
+    function getIntroduction() public constant returns (bytes32 _introduction) {
+        return introduction;
+    }
+
+    function setCharacteristic(bytes32 charac) public {
+        characteristic = charac;
+    }
+    function getCharacteristic() public constant returns(bytes32 _characteristic) {
+        return characteristic;
+    }
+
+    function getAllRooms() public constant returns(address[] _rooms) {
+        return roomList;
+    }
+    function getAllTenders() public constant returns(address[] _tenders) {
+        return tenderList;
+    }
+    function getAllBids() public constant returns(address[] _bids){
+        return bidList;
     }
 }

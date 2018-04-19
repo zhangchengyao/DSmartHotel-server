@@ -110,7 +110,7 @@ contract Order {
     function setStartTime(uint start) public {
         startTime = start;
     }
-    function getStartTime() public constant returns (bytes32 _startTime) {
+    function getStartTime() public constant returns (uint _startTime) {
         return startTime;
     }
 

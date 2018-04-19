@@ -27,7 +27,7 @@ contract Tender {
         roomType = _otherStrInfo[1];
         hotelType = _otherStrInfo[2];
         roomNum = _roomNum;
-        createdAt = _otherIntInfo[5];
+        createDate = _otherIntInfo[5];
         facilities = _otherStrInfo[3];
         aroundSite = _otherStrInfo[4];
     }
@@ -44,13 +44,6 @@ contract Tender {
     }
     function getTenantId() public constant returns (uint _tenantId) {
         return tenantId;
-    }
-
-    function setLandlordId(uint id) public {
-        landlordId = id;
-    }
-    function getLandlordId() public constant returns (uint _landlordId) {
-        return landlordId;
     }
 
     function setPrice(uint thePrice) public {
@@ -70,7 +63,7 @@ contract Tender {
     function setStartTime(uint start) public {
         startTime = start;
     }
-    function getStartTime() public constant returns (bytes32 _startTime) {
+    function getStartTime() public constant returns (uint _startTime) {
         return startTime;
     }
 

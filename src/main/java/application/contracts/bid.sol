@@ -80,7 +80,7 @@ contract Bid {
     function setScore(uint sc) public {
         score = sc;
     }
-    function getScore() public constant returns (uint score) {
+    function getScore() public constant returns (uint _score) {
         return score;
     }
 }

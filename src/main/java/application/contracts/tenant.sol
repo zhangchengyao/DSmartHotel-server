@@ -73,4 +73,8 @@ contract Tenant is User{
     function getEconomic() public constant returns (bytes32 _economic) {
         return economic;
     }
+
+    function getAllOrders() public constant returns (address[] _orders) {
+        return orderList;
+    }
 }

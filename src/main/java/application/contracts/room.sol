@@ -35,8 +35,8 @@ contract Room {
         return landlordId;
     }
 
-    function setRoomType(string type) public {
-        roomType = type;
+    function setRoomType(string rType) public {
+        roomType = rType;
     }
     function getRoomType() public constant returns (string _roomType) {
         return roomType;
