@@ -2,12 +2,12 @@ pragma solidity ^0.4.0;
 import "./user.sol";
 import "./order.sol";
 contract Tenant is User{
-    bytes32 public gender;
-    bytes32 public phoneNum;
-    bytes32 public preference;
-    bytes32 public education;
-    bytes32 public vocation;
-    bytes32 public economic;
+    bytes32 gender;
+    bytes32 phoneNum;
+    bytes32 preference;
+    bytes32 education;
+    bytes32 vocation;
+    bytes32 economic;
 
     mapping(uint => address) public orderMapping;
     address[] public orderList;
@@ -30,5 +30,47 @@ contract Tenant is User{
         address newOrder = new Order(_orderId, _tenantId, _roomNum, _otherIntInfo, _otherStrInfo);
         orderList.push(newOrder);
         orderMapping[_orderId] = orderList[orderList.length - 1];
+    }
+
+    function setGender(bytes32 gen) public {
+        gender = gen;
+    }
+    function getGender() public constant returns (bytes32 _gender) {
+        return gender;
+    }
+
+    function setPhoneNum(bytes32 phone) public {
+        phoneNum = phone;
+    }
+    function getPhoneNum() public constant returns (bytes32 _phoneNum) {
+        return phoneNum;
+    }
+
+    function setPreference(bytes32 pre) public {
+        preference = pre;
+    }
+    function getPreference() public constant returns (bytes32 _preference) {
+        return preference;
+    }
+
+    function setEducation(bytes32 edu) public {
+        education = edu;
+    }
+    function getEducation() public constant returns (bytes32 _education) {
+        return education;
+    }
+
+    function setVocation(bytes32 vc) public {
+        vocation = vc;
+    }
+    function getVocation() public constant returns (bytes32 _vocation) {
+        return vocation;
+    }
+
+    function setEconomic(bytes32 ec) public {
+        economic = ec;
+    }
+    function getEconomic() public constant returns (bytes32 _economic) {
+        return economic;
     }
 }
