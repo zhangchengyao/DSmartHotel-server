@@ -4,10 +4,7 @@ import application.service.LoginService;
 import application.service.RegisterService;
 import application.vo.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by guhan on 18/4/13.
@@ -25,12 +22,18 @@ public class AccountController {
     private RegisterService registerService;
 
     @PostMapping(value="/register")
-    public UserInfo register(){
-        return null;
+    public String register(@RequestParam int id,
+                             @RequestParam String password,
+                             @RequestParam String name,
+                             @RequestParam String type){
+        UserInfo userInfo = new UserInfo(id, name, password);
+        return registerService.register(userInfo, type);
     }
 
     @GetMapping(value="/login")
-    public UserInfo login(String id, String password, String type){
+    public UserInfo login(@RequestParam String id,
+                          @RequestParam String password,
+                          @RequestParam String type){
         return loginService.login(id, password, type);
     }
 }

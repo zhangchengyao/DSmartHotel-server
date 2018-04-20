@@ -17,14 +17,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class RegisterServiceImpl implements RegisterService {
 
-    private static RegisterService registerService = new RegisterServiceImpl();
-
-    private RegisterServiceImpl(){}
-
-    public static RegisterService getInstance(){
-        return registerService;
-    }
-
     public String register(UserInfo userInfo,String type) {
         if(type.equals("Tenant")){
             Tenant tenant = new Tenant(((TenantInfo)userInfo).getId(),
@@ -39,6 +31,7 @@ public class RegisterServiceImpl implements RegisterService {
 //            if(tenantDao.registerTenant(Tenant)){
 //                return "Register Success!";
 //            }
+            //todo create tenant in blockchain
         }else if(type.equals("Landlord")){
             Landlord landlord = new Landlord(((LandlordInfo)userInfo).getLandlordid(),
                     ((LandlordInfo)userInfo).getLandlordname(),
@@ -58,8 +51,7 @@ public class RegisterServiceImpl implements RegisterService {
 //            if(landlordDao.registerLandlord(Landlord)){
 //                return "Register Success!";
 //            }
-        }else{
-
+            //todo create landlord in blockchain
         }
 
         return "Register Fail!";
