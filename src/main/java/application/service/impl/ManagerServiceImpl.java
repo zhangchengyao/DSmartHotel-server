@@ -35,6 +35,7 @@ public class ManagerServiceImpl implements ManagerService {
 
     private BidSystemFactory_sol_BidSystemFactory contractFactory;
 
+    @Override
     public void initSystem() {
         Runtime rt = Runtime.instance();
         rt.setCloseVM(true);
@@ -82,6 +83,7 @@ public class ManagerServiceImpl implements ManagerService {
         }
     }
 
+    @Override
     public BidSystemFactory_sol_BidSystemFactory getContractFactory(){
         return contractFactory;
     }

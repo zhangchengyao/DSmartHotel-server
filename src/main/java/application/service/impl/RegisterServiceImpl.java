@@ -2,6 +2,8 @@ package application.service.impl;
 
 import application.DO.Landlord;
 import application.DO.Tenant;
+import application.contracts.BidSystemFactory_sol_BidSystemFactory;
+import application.service.ManagerService;
 import application.vo.LandlordInfo;
 import application.vo.TenantInfo;
 import application.vo.UserInfo;
@@ -17,37 +19,41 @@ import org.springframework.stereotype.Service;
 @Service
 public class RegisterServiceImpl implements RegisterService {
 
-    public String register(UserInfo userInfo,String type) {
-        if(type.equals("Tenant")){
-            Tenant tenant = new Tenant(((TenantInfo)userInfo).getId(),
-                    ((TenantInfo)userInfo).getName(),
-                    ((TenantInfo)userInfo).getPassword(),
-                    ((TenantInfo)userInfo).getGender(),
-                    ((TenantInfo)userInfo).getPhonenum(),
-                    ((TenantInfo)userInfo).getPreference(),
-                    ((TenantInfo)userInfo).getEducation(),
-                    ((TenantInfo)userInfo).getVocation(),
-                    ((TenantInfo)userInfo).getEconomic());
+    public String register(UserInfo userInfo) {
+        ManagerService managerService = ManagerServiceImpl.getInstance();
+        BidSystemFactory_sol_BidSystemFactory factory = managerService.getContractFactory();
+        if(userInfo instanceof TenantInfo){
+            //todo create tenant in blockchain
+//            Tenant tenant = new Tenant(((TenantInfo)userInfo).getId(),
+//                    ((TenantInfo)userInfo).getName(),
+//                    ((TenantInfo)userInfo).getPassword(),
+//                    ((TenantInfo)userInfo).getGender(),
+//                    ((TenantInfo)userInfo).getPhonenum(),
+//                    ((TenantInfo)userInfo).getPreference(),
+//                    ((TenantInfo)userInfo).getEducation(),
+//                    ((TenantInfo)userInfo).getVocation(),
+//                    ((TenantInfo)userInfo).getEconomic());
 //            if(tenantDao.registerTenant(Tenant)){
 //                return "Register Success!";
 //            }
-            //todo create tenant in blockchain
-        }else if(type.equals("Landlord")){
-            Landlord landlord = new Landlord(((LandlordInfo)userInfo).getLandlordid(),
-                    ((LandlordInfo)userInfo).getLandlordname(),
-                    ((LandlordInfo)userInfo).getPassword(),
-                    ((LandlordInfo)userInfo).getLandlordtype(),
-                    ((LandlordInfo)userInfo).getFeature(),
-                    ((LandlordInfo)userInfo).getStartprice(),
-                    ((LandlordInfo)userInfo).getCity(),
-                    ((LandlordInfo)userInfo).getArea(),
-                    ((LandlordInfo)userInfo).getDetailaddress(),
-                    ((LandlordInfo)userInfo).getComment(),
-                    ((LandlordInfo)userInfo).getLongitude(),
-                    ((LandlordInfo)userInfo).getLatitude(),
-                    ((LandlordInfo)userInfo).getConcat(),
-                    ((LandlordInfo)userInfo).getIntroduction(),
-                    ((LandlordInfo)userInfo).getCharacteristic());
+
+
+        }else if(userInfo instanceof LandlordInfo){
+//            Landlord landlord = new Landlord(((LandlordInfo)userInfo).getLandlordid(),
+//                    ((LandlordInfo)userInfo).getLandlordname(),
+//                    ((LandlordInfo)userInfo).getPassword(),
+//                    ((LandlordInfo)userInfo).getLandlordtype(),
+//                    ((LandlordInfo)userInfo).getFeature(),
+//                    ((LandlordInfo)userInfo).getStartprice(),
+//                    ((LandlordInfo)userInfo).getCity(),
+//                    ((LandlordInfo)userInfo).getArea(),
+//                    ((LandlordInfo)userInfo).getDetailaddress(),
+//                    ((LandlordInfo)userInfo).getComment(),
+//                    ((LandlordInfo)userInfo).getLongitude(),
+//                    ((LandlordInfo)userInfo).getLatitude(),
+//                    ((LandlordInfo)userInfo).getConcat(),
+//                    ((LandlordInfo)userInfo).getIntroduction(),
+//                    ((LandlordInfo)userInfo).getCharacteristic());
 //            if(landlordDao.registerLandlord(Landlord)){
 //                return "Register Success!";
 //            }

@@ -2,6 +2,8 @@ package application.controller;
 
 import application.service.LoginService;
 import application.service.RegisterService;
+import application.vo.LandlordInfo;
+import application.vo.TenantInfo;
 import application.vo.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,19 +23,31 @@ public class AccountController {
     @Autowired
     private RegisterService registerService;
 
+    /**
+     * @param name 用户名
+     * @param password 密码
+     * @param type 用户类型（房东还是房客）
+     * @param otherInfo 存放了与房东或者房客相关的信息，以;分隔
+     * @return String
+     */
     @PostMapping(value="/register")
-    public String register(@RequestParam int id,
+    public String register(  @RequestParam String name,
                              @RequestParam String password,
-                             @RequestParam String name,
-                             @RequestParam String type){
-        UserInfo userInfo = new UserInfo(id, name, password);
-        return registerService.register(userInfo, type);
+                             @RequestParam String type,
+                             @RequestParam String otherInfo){
+        UserInfo userInfo = null;
+        if(type.equals("Tenant")){
+            userInfo = new TenantInfo();
+        }else if(type.equals("Landlord")){
+            userInfo = new LandlordInfo();
+        }
+        return registerService.register(userInfo);
     }
 
     @GetMapping(value="/login")
-    public UserInfo login(@RequestParam String id,
+    public UserInfo login(@RequestParam String name,
                           @RequestParam String password,
                           @RequestParam String type){
-        return loginService.login(id, password, type);
+        return loginService.login(name, password, type);
     }
 }
