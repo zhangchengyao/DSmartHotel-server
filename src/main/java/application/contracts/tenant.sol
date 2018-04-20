@@ -77,4 +77,7 @@ contract Tenant is User{
     function getAllOrders() public constant returns (address[] _orders) {
         return orderList;
     }
+    function getOrder(uint id) public constant returns (address _order) {
+        return orderMapping[id];
+    }
 }

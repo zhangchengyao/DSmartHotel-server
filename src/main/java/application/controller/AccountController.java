@@ -1,6 +1,9 @@
 package application.controller;
 
-import application.DO.User;
+import application.service.LoginService;
+import application.service.RegisterService;
+import application.vo.UserInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,14 +18,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/account")
 public class AccountController {
+    @Autowired
+    private LoginService loginService;
+
+    @Autowired
+    private RegisterService registerService;
 
     @PostMapping(value="/register")
-    public User register(){
+    public UserInfo register(){
         return null;
     }
 
     @GetMapping(value="/login")
-    public User login(){
-        return null;
+    public UserInfo login(String id, String password, String type){
+        return loginService.login(id, password, type);
     }
 }

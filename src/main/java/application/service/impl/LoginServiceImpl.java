@@ -8,12 +8,14 @@ import application.vo.TenantInfo;
 import application.vo.UserInfo;
 //import dao.daoImpl.UserDao;
 import application.service.LoginService;
+import org.springframework.stereotype.Service;
 
 
 /**
  * Created by zcy on 2017/6/4.
  *
  */
+@Service
 public class LoginServiceImpl implements LoginService{
 
     private static LoginService login = new LoginServiceImpl();

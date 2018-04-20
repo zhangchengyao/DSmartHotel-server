@@ -8,11 +8,13 @@ import application.vo.UserInfo;
 //import dao.daoImpl.landlordDao;
 //import dao.daoImpl.tenantDao;
 import application.service.RegisterService;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by zcy on 2017/6/24.
  *
  */
+@Service
 public class RegisterServiceImpl implements RegisterService {
 
     private static RegisterService registerService = new RegisterServiceImpl();

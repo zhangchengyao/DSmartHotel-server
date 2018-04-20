@@ -12,10 +12,10 @@ import application.service.ManagerService;
 /**
  * Created by H77 on 2017/5/15.
  */
-public class managerServiceImpl implements ManagerService {
+public class ManagerServiceImpl implements ManagerService {
 
-    private static ManagerService manager = new managerServiceImpl();
-    private managerServiceImpl(){};
+    private static ManagerService manager = new ManagerServiceImpl();
+    private ManagerServiceImpl(){};
     public static ManagerService getInstance(){return manager;}
     public void initSystem() {
         Runtime rt = Runtime.instance();

@@ -107,10 +107,20 @@ contract Landlord is User{
     function getAllRooms() public constant returns(address[] _rooms) {
         return roomList;
     }
+    function getRoom(uint id) public constant returns(address _room) {
+        return roomMapping[id];
+    }
     function getAllTenders() public constant returns(address[] _tenders) {
         return tenderList;
     }
-    function getAllBids() public constant returns(address[] _bids){
+    function getTender(uint id) public constant returns(address _tender) {
+        return tenderMapping[id];
+    }
+    function getAllBids() public constant returns(address[] _bids) {
         return bidList;
     }
+    function getBid(uint id) public constant returns(address _bid) {
+        return bidMapping[id];
+    }
+
 }

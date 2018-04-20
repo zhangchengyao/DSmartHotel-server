@@ -1,7 +1,7 @@
 package application.service;
 
 import org.glassfish.jersey.server.ResourceConfig;
-import application.service.impl.managerServiceImpl;
+import application.service.impl.ManagerServiceImpl;
 
 /**
  * Created by H77 on 2017/5/15.
@@ -9,7 +9,7 @@ import application.service.impl.managerServiceImpl;
 public class RESTApplication extends ResourceConfig{
 
     public RESTApplication(){
-        ManagerService manager = managerServiceImpl.getInstance();
+        ManagerService manager = ManagerServiceImpl.getInstance();
         manager.initSystem();
     }
 
@@ -17,7 +17,7 @@ public class RESTApplication extends ResourceConfig{
 //         TenantService Tenant = tenantServiceImpl.getInstance();
 //        User User = new User("h77","123456","male","student",18);
 //         Tenant.createTenant(User);
-//         ManagerService manager = managerServiceImpl.getInstance();
+//         ManagerService manager = ManagerServiceImpl.getInstance();
 //         manager.initSystem();
 //         Tenant User = Tenant.findTenant(1);
 //         Date dStart = new Date(2017,5,28);

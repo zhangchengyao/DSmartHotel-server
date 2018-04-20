@@ -10,9 +10,6 @@ contract BidSystemFactory {
     mapping(uint => address) public tenantMapping;
     address[] public tenantList;
 
-    mapping(uint => address) public roomMapping;
-    address[] public roomList;
-
     mapping(uint => address) public bidMapping;
     address[] public bidList;
 
@@ -49,5 +46,18 @@ contract BidSystemFactory {
             _orderId, _score);
         bidList.push(newBid);
         bidMapping[_bidId] = bidList[bidList.length - 1];
+    }
+
+    function getLandlord(uint id) public constant returns(address _landlord) {
+        return landlordMapping[id];
+    }
+    function getTenant(uint id) public constant returns(address _tenant) {
+        return tenantMapping[id];
+    }
+    function getBid(uint id) public constant returns(address _bid) {
+        return bidMapping[id];
+    }
+    function getTender(uint id) public constant returns(address _tender) {
+        return tenantMapping[id];
     }
 }
