@@ -51,13 +51,25 @@ contract BidSystemFactory {
     function getLandlord(uint id) public constant returns(address _landlord) {
         return landlordMapping[id];
     }
+    function getNumOfLandlord() public constant returns (uint _number) {
+        return landlordList.length;
+    }
     function getTenant(uint id) public constant returns(address _tenant) {
         return tenantMapping[id];
     }
-    function getBid(uint id) public constant returns(address _bid) {
+    function getNumOfTenant() public constant returns(uint _number) {
+        return tenantList.length;
+    }
+    function getBid(uint id) public constant returns(address _bi) {
         return bidMapping[id];
+    }
+    function getNumOfBid() public constant returns (uint _number) {
+        return bidList.length;
     }
     function getTender(uint id) public constant returns(address _tender) {
         return tenantMapping[id];
+    }
+    function getNumOfTenders() public constant returns (uint _number) {
+        return tenderList.length;
     }
 }
