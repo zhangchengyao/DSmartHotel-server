@@ -5,11 +5,11 @@ package application.vo;
  *
  */
 public class UserInfo {
-    private Integer id;
+    protected Integer id;
 
-    private String name;
+    protected String name;
 
-    private String password;
+    protected String password;
 
 
     public UserInfo(Integer userid, String username, String password) {

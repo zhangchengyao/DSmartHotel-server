@@ -81,7 +81,7 @@ public class LandlordListener extends CyclicBehaviour {
                             Landlord lord = ((LandlordAgent) myAgent).getOwner();
                             String economy = lord.getCharacteristic(); //房东经济情况
 
-//                            Room Room = roomDao.findRoomByLandlordAndType(lord.getLandlordid(), order.getRoomType());
+//                            Room Room = roomDao.findRoomByLandlordAndType(lord.getId(), order.getRoomType());
                             Room room = new Room();
                             int init_price = room.getPrice();  //该房间的标价
                             int current_price = negotiation.getActualPrice();  //此次协商前的房间价格

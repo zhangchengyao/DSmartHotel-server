@@ -7,11 +7,6 @@ import java.math.BigDecimal;
  *
  */
 public class LandlordInfo extends UserInfo {
-    private Integer landlordid;
-
-    private String landlordname;
-
-    private String password;
 
     private String landlordtype;
 
@@ -38,8 +33,8 @@ public class LandlordInfo extends UserInfo {
     private String characteristic;
 
     public LandlordInfo(Integer landlordid, String landlordname, String password, String landlordtype, String feature, Integer startprice, String city, String area, String detailaddress, String comment, BigDecimal longitude, BigDecimal latitude, String concat, String introduction, String characteristic) {
-        this.landlordid = landlordid;
-        this.landlordname = landlordname;
+        this.id = landlordid;
+        this.name = landlordname;
         this.password = password;
         this.landlordtype = landlordtype;
         this.feature = feature;
@@ -55,24 +50,29 @@ public class LandlordInfo extends UserInfo {
         this.characteristic = characteristic;
     }
 
+    public LandlordInfo(String name, String password){
+        this.name = name;
+        this.password = password;
+    }
+
     public LandlordInfo() {
         super();
     }
 
-    public Integer getLandlordid() {
-        return landlordid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setLandlordid(Integer landlordid) {
-        this.landlordid = landlordid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getLandlordname() {
-        return landlordname;
+    public String getName() {
+        return name;
     }
 
-    public void setLandlordname(String landlordname) {
-        this.landlordname = landlordname == null ? null : landlordname.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     public String getPassword() {

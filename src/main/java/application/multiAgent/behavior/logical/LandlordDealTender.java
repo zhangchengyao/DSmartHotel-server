@@ -55,7 +55,7 @@ public class LandlordDealTender extends OneShotBehaviour{
         String roomType = order.getRoomType();
         int roomNum = order.getRoomNum();
 
-//        Room r = roomDao.findRoomByLandlordAndType(Landlord.getLandlordid(),roomType);
+//        Room r = roomDao.findRoomByLandlordAndType(Landlord.getId(),roomType);
         Room r = new application.DO.Room();
         String[] facility = landlord.getFeature().split(",");
         List facilitys = new ArrayList();

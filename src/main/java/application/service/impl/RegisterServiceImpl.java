@@ -11,6 +11,10 @@ import application.vo.UserInfo;
 //import dao.daoImpl.tenantDao;
 import application.service.RegisterService;
 import org.springframework.stereotype.Service;
+import org.web3j.protocol.core.RemoteCall;
+
+import java.math.BigInteger;
+import java.util.ArrayList;
 
 /**
  * Created by zcy on 2017/6/24.
@@ -23,6 +27,16 @@ public class RegisterServiceImpl implements RegisterService {
         ManagerService managerService = ManagerServiceImpl.getInstance();
         BidSystemFactory_sol_BidSystemFactory factory = managerService.getContractFactory();
         if(userInfo instanceof TenantInfo){
+            BigInteger num;
+            try {
+                num = factory.getNumOfTenant().send();
+                factory.createTenant(   num.add(new BigInteger("1")),
+                                        userInfo.getName(),
+                                        userInfo.getPassword(),
+                                        new ArrayList<>());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             //todo create tenant in blockchain
 //            Tenant tenant = new Tenant(((TenantInfo)userInfo).getId(),
 //                    ((TenantInfo)userInfo).getName(),
@@ -39,8 +53,18 @@ public class RegisterServiceImpl implements RegisterService {
 
 
         }else if(userInfo instanceof LandlordInfo){
-//            Landlord landlord = new Landlord(((LandlordInfo)userInfo).getLandlordid(),
-//                    ((LandlordInfo)userInfo).getLandlordname(),
+            BigInteger num;
+            try {
+                num = factory.getNumOfLandlord().send();
+                factory.createLandlord( num.add(new BigInteger("1")),
+                                        userInfo.getName(),
+                                        userInfo.getPassword(),
+                                        new ArrayList<>());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+//            Landlord landlord = new Landlord(((LandlordInfo)userInfo).getId(),
+//                    ((LandlordInfo)userInfo).getName(),
 //                    ((LandlordInfo)userInfo).getPassword(),
 //                    ((LandlordInfo)userInfo).getLandlordtype(),
 //                    ((LandlordInfo)userInfo).getFeature(),
@@ -57,9 +81,7 @@ public class RegisterServiceImpl implements RegisterService {
 //            if(landlordDao.registerLandlord(Landlord)){
 //                return "Register Success!";
 //            }
-            //todo create landlord in blockchain
         }
-
         return "Register Fail!";
     }
 }

@@ -5,11 +5,6 @@ package application.vo;
  *
  */
 public class TenantInfo extends UserInfo {
-    private Integer id;
-
-    private String name;
-
-    private String password;
 
     private String gender;
 
@@ -33,6 +28,11 @@ public class TenantInfo extends UserInfo {
         this.education = education;
         this.vocation = vocation;
         this.economic = economic;
+    }
+
+    public TenantInfo(String name, String password){
+        this.name = name;
+        this.password = password;
     }
 
     public TenantInfo() {
