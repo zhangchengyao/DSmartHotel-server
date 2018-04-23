@@ -62,11 +62,11 @@ public final class Bid_sol_Bid extends Contract {
         return executeRemoteCallTransaction(function);
     }
 
-    public RemoteCall<List<BigInteger>> getRoomIds() {
+    public RemoteCall<List> getRoomIds() {
         Function function = new Function("getRoomIds", 
                 Arrays.<Type>asList(), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<DynamicArray<Uint256>>() {}));
-        return executeRemoteCallSingleValueReturn(function, List<BigInteger>.class);
+        return executeRemoteCallSingleValueReturn(function, List.class);
     }
 
     public RemoteCall<TransactionReceipt> setResult(BigInteger theResult) {

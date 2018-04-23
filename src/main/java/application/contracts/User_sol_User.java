@@ -102,11 +102,11 @@ public final class User_sol_User extends Contract {
         return executeRemoteCallTransaction(function);
     }
 
-    public RemoteCall<List<String>> getChatFilesHashAndName() {
+    public RemoteCall<List> getChatFilesHashAndName() {
         Function function = new Function("getChatFilesHashAndName", 
                 Arrays.<Type>asList(), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<DynamicArray<Utf8String>>() {}));
-        return executeRemoteCallSingleValueReturn(function, List<String>.class);
+        return executeRemoteCallSingleValueReturn(function, List.class);
     }
 
     public static RemoteCall<User_sol_User> deploy(Web3j web3j, Credentials credentials, BigInteger gasPrice, BigInteger gasLimit, BigInteger _id, byte[] _name, byte[] _password) {

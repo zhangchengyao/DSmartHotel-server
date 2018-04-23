@@ -107,11 +107,11 @@ public final class Landlord_sol_Landlord extends Contract {
         return executeRemoteCallSingleValueReturn(function, byte[].class);
     }
 
-    public RemoteCall<List<String>> getAllTenders() {
+    public RemoteCall<List> getAllTenders() {
         Function function = new Function("getAllTenders", 
                 Arrays.<Type>asList(), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<DynamicArray<Address>>() {}));
-        return executeRemoteCallSingleValueReturn(function, List<String>.class);
+        return executeRemoteCallSingleValueReturn(function, List.class);
     }
 
     public RemoteCall<String> getBid(BigInteger id) {
@@ -187,11 +187,11 @@ public final class Landlord_sol_Landlord extends Contract {
         return executeRemoteCallSingleValueReturn(function, byte[].class);
     }
 
-    public RemoteCall<List<String>> getAllBids() {
+    public RemoteCall<List> getAllBids() {
         Function function = new Function("getAllBids", 
                 Arrays.<Type>asList(), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<DynamicArray<Address>>() {}));
-        return executeRemoteCallSingleValueReturn(function, List<String>.class);
+        return executeRemoteCallSingleValueReturn(function, List.class);
     }
 
     public RemoteCall<String> bidList(BigInteger param0) {
@@ -300,18 +300,18 @@ public final class Landlord_sol_Landlord extends Contract {
         return executeRemoteCallTransaction(function);
     }
 
-    public RemoteCall<List<String>> getChatFilesHashAndName() {
+    public RemoteCall<List> getChatFilesHashAndName() {
         Function function = new Function("getChatFilesHashAndName", 
                 Arrays.<Type>asList(), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<DynamicArray<Utf8String>>() {}));
-        return executeRemoteCallSingleValueReturn(function, List<String>.class);
+        return executeRemoteCallSingleValueReturn(function, List.class);
     }
 
-    public RemoteCall<List<String>> getAllRooms() {
+    public RemoteCall<List> getAllRooms() {
         Function function = new Function("getAllRooms", 
                 Arrays.<Type>asList(), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<DynamicArray<Address>>() {}));
-        return executeRemoteCallSingleValueReturn(function, List<String>.class);
+        return executeRemoteCallSingleValueReturn(function, List.class);
     }
 
     public RemoteCall<TransactionReceipt> createBid(BigInteger _bidId, BigInteger _tenantId, BigInteger _landlordId, BigInteger _result, BigInteger _price, List<BigInteger> _roomIds, BigInteger _orderId, BigInteger _score) {

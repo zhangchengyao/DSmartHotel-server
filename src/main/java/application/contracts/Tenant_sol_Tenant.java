@@ -115,11 +115,11 @@ public final class Tenant_sol_Tenant extends Contract {
         return executeRemoteCallSingleValueReturn(function, String.class);
     }
 
-    public RemoteCall<List<String>> getAllOrders() {
+    public RemoteCall<List> getAllOrders() {
         Function function = new Function("getAllOrders", 
                 Arrays.<Type>asList(), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<DynamicArray<Address>>() {}));
-        return executeRemoteCallSingleValueReturn(function, List<String>.class);
+        return executeRemoteCallSingleValueReturn(function, List.class);
     }
 
     public RemoteCall<byte[]> getGender() {
@@ -220,11 +220,11 @@ public final class Tenant_sol_Tenant extends Contract {
         return executeRemoteCallTransaction(function);
     }
 
-    public RemoteCall<List<String>> getChatFilesHashAndName() {
+    public RemoteCall<List> getChatFilesHashAndName() {
         Function function = new Function("getChatFilesHashAndName", 
                 Arrays.<Type>asList(), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<DynamicArray<Utf8String>>() {}));
-        return executeRemoteCallSingleValueReturn(function, List<String>.class);
+        return executeRemoteCallSingleValueReturn(function, List.class);
     }
 
     public RemoteCall<TransactionReceipt> setEducation(byte[] edu) {
