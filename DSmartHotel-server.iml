@@ -15,6 +15,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="ipfs" level="project" />
     <orderEntry type="library" name="Maven: org.web3j:core:3.3.1" level="project" />
     <orderEntry type="library" name="Maven: org.web3j:abi:3.3.1" level="project" />
     <orderEntry type="library" name="Maven: org.web3j:utils:3.3.1" level="project" />
@@ -97,5 +98,19 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-context:4.3.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:4.3.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:4.3.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.igniterealtime.smack:smack-java7:4.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.igniterealtime.smack:smack-resolver-javax:4.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.igniterealtime.smack:smack-sasl-javax:4.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.igniterealtime.smack:smack-core:4.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jxmpp:jxmpp-core:0.4.2-beta1" level="project" />
+    <orderEntry type="library" name="Maven: org.jxmpp:jxmpp-util-cache:0.4.2-beta1" level="project" />
+    <orderEntry type="library" name="Maven: xpp3:xpp3:1.1.4c" level="project" />
+    <orderEntry type="library" name="Maven: org.igniterealtime.smack:smack-tcp:4.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.igniterealtime.smack:smack-im:4.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.igniterealtime.smack:smack-extensions:4.1.0" level="project" />
+    <orderEntry type="library" name="Maven: com.github.multiformats:java-multibase:v1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: com.github.multiformats:java-multiaddr:v1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.github.multiformats:java-multihash:v1.2.0" level="project" />
+    <orderEntry type="library" name="Maven: com.github.ipld:java-cid:v1.0.1" level="project" />
   </component>
 </module>
