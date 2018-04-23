@@ -1,4 +1,5 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.4.22;
+//pragma experimental ABIEncoderV2;
 import "./user.sol";
 import "./room.sol";
 import "./bid.sol";
@@ -39,8 +40,8 @@ contract Landlord is User{
         characteristic = _otherInfo[6];
     }
 
-    function createRoom (uint _roomId, uint _landlordId, string _roomType, uint _price,
-    uint _validStartTime, uint _validEndTime, uint _area, string _roomAddress) public {
+    function createRoom (uint _roomId, uint _landlordId, bytes32 _roomType, uint _price,
+    uint _validStartTime, uint _validEndTime, uint _area, bytes32 _roomAddress) public {
         address newRoom = new Room(_roomId, _landlordId, _roomType, _price, _validStartTime,
         _validEndTime, _area, _roomAddress);
         roomList.push(newRoom);

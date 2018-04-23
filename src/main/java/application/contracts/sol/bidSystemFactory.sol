@@ -1,4 +1,4 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.4.22;
 import "./landlord.sol";
 import "./tenant.sol";
 import "./bid.sol";

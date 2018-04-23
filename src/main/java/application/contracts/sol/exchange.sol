@@ -1,5 +1,5 @@
-pragma solidity ^0.4.23;
-//pragma experimental ABIEncoderV2;
+pragma solidity ^0.4.22;
+pragma experimental ABIEncoderV2;
 
 contract Exchange {
     function() public payable { }
