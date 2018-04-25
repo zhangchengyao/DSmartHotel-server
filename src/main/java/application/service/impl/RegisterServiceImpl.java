@@ -31,8 +31,8 @@ public class RegisterServiceImpl implements RegisterService {
             try {
                 num = factory.getNumOfTenant().send();
                 factory.createTenant(   num.add(new BigInteger("1")),
-                                        userInfo.getName(),
-                                        userInfo.getPassword(),
+                                        userInfo.getName().getBytes(),
+                                        userInfo.getPassword().getBytes(),
                                         new ArrayList<>());
             } catch (Exception e) {
                 e.printStackTrace();
@@ -57,8 +57,8 @@ public class RegisterServiceImpl implements RegisterService {
             try {
                 num = factory.getNumOfLandlord().send();
                 factory.createLandlord( num.add(new BigInteger("1")),
-                                        userInfo.getName(),
-                                        userInfo.getPassword(),
+                                        userInfo.getName().getBytes(),
+                                        userInfo.getPassword().getBytes(),
                                         new ArrayList<>());
             } catch (Exception e) {
                 e.printStackTrace();

@@ -1,13 +1,13 @@
 package application.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by zhouchang on 18/4/13.
  */
-@Controller
+@RestController
 @RequestMapping("/payment")
 public class PaymentController {
 
@@ -21,7 +21,7 @@ public class PaymentController {
         return false;
     }
 
-    @GetMapping(value="/transfer2Agency")
+    @GetMapping(value="/refund")
     public boolean refund() {
         return false;
     }
