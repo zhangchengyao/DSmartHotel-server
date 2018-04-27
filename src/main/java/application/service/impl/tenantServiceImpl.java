@@ -1,5 +1,6 @@
 package application.service.impl;
 
+import application.DO.Room;
 import application.DO.Tenant;
 import application.vo.BidInfo;
 import application.vo.OrderInfo;
@@ -14,6 +15,7 @@ import application.multiAgent.ontology.Order;
 import application.service.common.AgentHandler;
 import application.service.TenantService;
 import application.util.CondVar;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -21,6 +23,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 /**
  * Created by H77 on 2017/5/15.
  */
+@Service
 public class tenantServiceImpl implements TenantService {
 
     private static TenantService tenantImpl = new tenantServiceImpl();
@@ -110,6 +113,11 @@ public class tenantServiceImpl implements TenantService {
             e.printStackTrace();
         }
         return bids;
+    }
+
+    @Override
+    public List<Room> getRecommendedRooms(int tenantId) {
+        return null;
     }
 
 

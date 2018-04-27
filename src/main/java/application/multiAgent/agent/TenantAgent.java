@@ -30,17 +30,17 @@ public class TenantAgent extends Agent {
     private Tenant owner = null;
     //TenantAgent 生命周期
     private boolean isDone = false;
-    private Map<Integer,Order> tenantTOorder;
+    private Map<Integer,Order> tenantToOrder;
     private LinkedBlockingQueue<List<BidInfo>> queues;
-    private Map<Integer,List<Consult>> landlordTOconsult;
+    private Map<Integer,List<Consult>> landlordToConsult;
 
     protected void setup() {
         getContentManager().registerLanguage(codec);
         getContentManager().registerOntology(ontology);
         setEnabledO2ACommunication(true,10);
         Object[] args = getArguments();
-        tenantTOorder = new HashMap<Integer, Order>();
-        landlordTOconsult = new HashMap<Integer, List<Consult>>();
+        tenantToOrder = new HashMap<Integer, Order>();
+        landlordToConsult = new HashMap<Integer, List<Consult>>();
         if (args.length > 0) {
             CondVar latch = (CondVar) args[0];
             owner = (Tenant) args[1];
@@ -55,15 +55,11 @@ public class TenantAgent extends Agent {
         addBehaviour(new TenantBackOrderResult(null,null));
     }
 
-//    public boolean done(){
-//        //结束生命周期
-//        return isDone;
-//    }
     public Tenant getOwner(){
         return owner;
     }
-    public void setOrder(Integer id,Order order){ tenantTOorder.put(id,order);}
-    public Order getOrder(Integer id){return tenantTOorder.get(id);}
+    public void setOrder(Integer id,Order order){ tenantToOrder.put(id,order);}
+    public Order getOrder(Integer id){return tenantToOrder.get(id);}
     public void takeDown(){
         System.out.println("TenantAgent 被销毁");
         setEnabledO2ACommunication(false,0);
@@ -76,10 +72,10 @@ public class TenantAgent extends Agent {
         }
     }
     public List<Consult> getConsult(int landlordId){
-        return landlordTOconsult.get(landlordId);
+        return landlordToConsult.get(landlordId);
     }
     public void setConsult(int landlordId,List<Consult> consults){
-        this.landlordTOconsult.put(landlordId,consults);
+        this.landlordToConsult.put(landlordId,consults);
     }
 
 }

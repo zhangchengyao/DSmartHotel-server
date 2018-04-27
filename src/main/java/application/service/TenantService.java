@@ -1,5 +1,6 @@
 package application.service;
 
+import application.DO.Room;
 import application.DO.Tenant;
 import application.vo.BidInfo;
 import application.vo.OrderInfo;
@@ -15,5 +16,6 @@ public interface TenantService {
     public void createAgent(int tenantId);
     public void closeAgent(int tenantId);
     public List<BidInfo> Order(OrderInfo o);
+    public List<Room> getRecommendedRooms(int tenantId);
 
 }
