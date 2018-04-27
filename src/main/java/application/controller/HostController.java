@@ -1,9 +1,6 @@
 package application.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by guhan on 18/4/13.
@@ -16,5 +13,11 @@ public class HostController {
     @ResponseBody
     public String getHouseList(){
         return "house list json";
+    }
+
+    @PostMapping(value="/cancel")
+    @ResponseBody
+    public boolean cancelOrder(){
+        return false;
     }
 }

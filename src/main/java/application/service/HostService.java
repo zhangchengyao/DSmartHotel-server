@@ -7,7 +7,7 @@ import application.DO.Room;
  * Created by sam on 2017/5/16.
  *
  */
-public interface LandlordService {
+public interface HostService {
     public boolean createLandlord(Landlord lord);
     public boolean changeInfo(Landlord lord);
     public Landlord findlandlord(int landlordid);

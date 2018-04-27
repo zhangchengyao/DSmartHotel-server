@@ -2,9 +2,9 @@ package application.service.impl;
 
 import application.service.InstMsgService;
 import application.vo.ChatFile;
-import io.ipfs.api.IPFS;
-import io.ipfs.api.MerkleNode;
-import io.ipfs.api.NamedStreamable;
+//import io.ipfs.api.IPFS;
+//import io.ipfs.api.MerkleNode;
+//import io.ipfs.api.NamedStreamable;
 import io.ipfs.multihash.Multihash;
 import org.jivesoftware.smack.util.FileUtils;
 import org.springframework.stereotype.Service;

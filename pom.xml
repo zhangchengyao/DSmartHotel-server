@@ -101,11 +101,11 @@
             <version>4.1.0</version>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>com.github.ipfs</groupId>-->
-            <!--<artifactId>java-ipfs-api</artifactId>-->
-            <!--<version>0.4.11</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.github.ipfs</groupId>
+            <artifactId>java-ipfs-api</artifactId>
+            <version>v1.2.0</version>
+        </dependency>
 
         <dependency>
             <groupId>com.github.multiformats</groupId>
