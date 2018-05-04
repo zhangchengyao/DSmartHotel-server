@@ -24,10 +24,10 @@ import java.util.concurrent.LinkedBlockingQueue;
  * Created by H77 on 2017/5/15.
  */
 @Service
-public class tenantServiceImpl implements TenantService {
+public class TenantServiceImpl implements TenantService {
 
-    private static TenantService tenantImpl = new tenantServiceImpl();
-    private tenantServiceImpl(){
+    private static TenantService tenantImpl = new TenantServiceImpl();
+    private TenantServiceImpl(){
     }
     public static TenantService getInstance(){return tenantImpl;}
     public boolean createTenant(Tenant user) {

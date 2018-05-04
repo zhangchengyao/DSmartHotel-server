@@ -17,5 +17,4 @@ public interface TenantService {
     public void closeAgent(int tenantId);
     public List<BidInfo> Order(OrderInfo o);
     public List<Room> getRecommendedRooms(int tenantId);
-
 }
