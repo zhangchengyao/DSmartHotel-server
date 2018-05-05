@@ -17,6 +17,9 @@ import application.service.TenantService;
 import application.util.CondVar;
 import org.springframework.stereotype.Service;
 
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -117,6 +120,24 @@ public class TenantServiceImpl implements TenantService {
 
     @Override
     public List<Room> getRecommendedRooms(int tenantId) {
+        String exe = "python";
+        String command = "../../util/predict.py";
+        String num1 = tenantId+"";
+        String num2 = "2";
+        String[] cmdArr = new String[] {exe, command, num1, num2};
+        Process process = null;
+        String str = null;
+        try {
+            process = Runtime.getRuntime().exec(cmdArr);
+            InputStream is = process.getInputStream();
+            DataInputStream dis = new DataInputStream(is);
+            str = dis.readLine();
+            process.waitFor();
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(str);
         return null;
     }
 
