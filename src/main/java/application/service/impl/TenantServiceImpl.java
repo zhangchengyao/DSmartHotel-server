@@ -2,6 +2,9 @@ package application.service.impl;
 
 import application.DO.Room;
 import application.DO.Tenant;
+import application.contracts.BidSystemFactory_sol_BidSystemFactory;
+import application.contracts.Landlord_sol_Landlord;
+import application.contracts.Room_sol_Room;
 import application.vo.BidInfo;
 import application.vo.OrderInfo;
 //import dao.daoImpl.tenantDao;
@@ -16,12 +19,20 @@ import application.service.common.AgentHandler;
 import application.service.TenantService;
 import application.util.CondVar;
 import org.springframework.stereotype.Service;
+import org.web3j.crypto.Credentials;
+import org.web3j.crypto.WalletUtils;
+import org.web3j.protocol.Web3j;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.tx.Contract;
 
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.math.BigInteger;
 import java.util.*;
 import java.util.concurrent.LinkedBlockingQueue;
+
+import static org.web3j.tx.Contract.GAS_LIMIT;
 
 /**
  * Created by H77 on 2017/5/15.
@@ -123,9 +134,33 @@ public class TenantServiceImpl implements TenantService {
         String exe = "python";
         String command = "../../util/predict.py";
         String num1 = tenantId+"";
-        String num2 = "2";
-        String[] cmdArr = new String[] {exe, command, num1, num2};
-        Process process = null;
+        BidSystemFactory_sol_BidSystemFactory bidSystemFactory_sol_bidSystemFactory = ManagerServiceImpl.getInstance().getContractFactory();
+        BigInteger num_landlords;
+        List<Room_sol_Room> rooms = new ArrayList<>();
+        Web3j web3j = Web3j.build(new HttpService());
+        Credentials credentials;
+        BigInteger GAS_PRICE = new BigInteger("20");
+        try {
+            credentials = WalletUtils.loadCredentials("password", "/path/to/walletfile");
+            num_landlords = bidSystemFactory_sol_bidSystemFactory.getNumOfLandlord().send();
+            for(int i=0;i<num_landlords.intValue();i++){
+                String address = bidSystemFactory_sol_bidSystemFactory.getLandlord(new BigInteger(i+"")).send();
+                Landlord_sol_Landlord landlord= Landlord_sol_Landlord.load(address,web3j, credentials, GAS_PRICE, GAS_LIMIT);
+                List<String> roomAddresses = landlord.getAllRooms().send();
+                for(String ra: roomAddresses){
+                    rooms.add(Room_sol_Room.load(ra, web3j, credentials, GAS_PRICE, GAS_LIMIT));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        StringBuilder stringBuilder = new StringBuilder();
+        for(Room_sol_Room room: rooms){
+            stringBuilder.append(room.getRoomId()).append(" ");
+        }
+
+        String[] cmdArr = new String[] {exe, command, num1, stringBuilder.toString()};
+        Process process;
         String str = null;
         try {
             process = Runtime.getRuntime().exec(cmdArr);
