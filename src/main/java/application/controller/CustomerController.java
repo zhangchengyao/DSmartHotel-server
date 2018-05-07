@@ -1,6 +1,7 @@
 package application.controller;
 
 import application.DO.Room;
+import application.contracts.Room_sol_Room;
 import application.service.TenantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,7 @@ public class CustomerController {
     TenantService tenantService;
 
     @GetMapping(value="/home")
-    public List<Room> getRecommendedRooms(int id){
+    public List<Room_sol_Room> getRecommendedRooms(int id){
         return tenantService.getRecommendedRooms(id);
     }
 }

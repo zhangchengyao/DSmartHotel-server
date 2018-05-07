@@ -130,7 +130,7 @@ public class TenantServiceImpl implements TenantService {
     }
 
     @Override
-    public List<Room> getRecommendedRooms(int tenantId) {
+    public List<Room_sol_Room> getRecommendedRooms(int tenantId) {
         String exe = "python";
         String command = "../../util/predict.py";
         String num1 = tenantId+"";
@@ -172,8 +172,22 @@ public class TenantServiceImpl implements TenantService {
             e.printStackTrace();
         }
 
-        System.out.println(str);
-        return null;
+        List<Room_sol_Room> res = new ArrayList<>();
+        if(str==null) return null;
+        else{
+            List<String> roomIds = Arrays.asList(str.split(" "));
+            for(Room_sol_Room room : rooms){
+                try {
+                    if(roomIds.contains(room.getRoomId().send().toString())){
+                        res.add(room);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return res;
     }
 
 
